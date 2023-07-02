@@ -1,0 +1,37 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "allwinner,sun50i-h6";
+
+    fragment@0 {
+        target-path = "/soc/spi@5011000";
+    __overlay__ {
+            num-cs = <1>;
+                /* PH3 */
+                cs-gpios = <&pio 7 3 0>;
+        #address-cells = <1>;
+        #size-cells = <0>;
+        status = "okay";
+        ads7846@0 {
+            compatible = "ti,ads7846";
+            reg = <0>;
+            status = "okay";
+            spi-max-frequency = <1000000>;
+            interrupts = <0 10 2>; /* high-to-low edge triggered */
+            interrupt-parent = <&r_pio>;   /* PL10 */
+            pendown-gpio = <&r_pio 0 10 0>;         
+
+            /* driver defaults, optional */
+
+           ti,keep-vref-on = <1>;
+           ti,x-min = /bits/ 16 <00>;
+           ti,x-max = /bits/ 16 <0xFFF>;
+           ti,y-min = /bits/ 16 <00>;
+           ti,y-max = /bits/ 16 <0xFFF>;
+           ti,x-plate-ohms = /bits/ 16 <60>;
+           ti,pressure-max = /bits/ 16 <255>;
+            ti,swap-xy = <0>;   };
+    };
+    };
+};
