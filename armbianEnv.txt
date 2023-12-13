@@ -1,0 +1,16 @@
+verbosity=1
+bootlogo=true
+console=both
+disp_mode=800x480p60
+overlay_prefix=sun50i-h6
+rootdev=UUID=9860d988-f944-4bdf-910d-b9330260d633
+rootfstype=ext4
+storagequirks=0x2537:0x1066:u,0x2537:0x1068:u
+overlays=spi-spidev uart3
+param_spidev_spi_bus=1
+param_spidev_spi_cs=1
+param_spidev_max_freq=100000000
+max_usb_current=1
+dtoverlay=vc4-fkms-v3d
+user_overlays=sun50i-h6-spi-touch
+usbstoragequirks=0x2537:0x1066:u,0x2537:0x1068:u
