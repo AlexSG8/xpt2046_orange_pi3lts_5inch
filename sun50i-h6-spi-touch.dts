@@ -7,12 +7,12 @@
     fragment@0 {
         target-path = "/soc/spi@5011000";
     __overlay__ {
-            num-cs = <1>;
-                /* PH3 */
-                cs-gpios = <&pio 7 3 0>;
+            #num-cs = <1>;
+                /* PL8 */
+                #cs-gpios = <&pio 0 8 0>;
         #address-cells = <1>;
         #size-cells = <0>;
-        status = "okay";
+        #status = "okay";
         ads7846@0 {
             compatible = "ti,ads7846";
             reg = <0>;
@@ -31,7 +31,7 @@
            ti,y-max = /bits/ 16 <0xFFF>;
            ti,x-plate-ohms = /bits/ 16 <60>;
            ti,pressure-max = /bits/ 16 <255>;
-            ti,swap-xy = <0>;   };
+           ti,swap-xy = <0>;   };
     };
     };
 };
